@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.todo-item {
+    width: 100%;
+    min-height: 2.8rem;
+    background-color: rgb(236, 237, 245);
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
+    box-shadow: 1px 1px 4px black;
+    padding: 1rem 0rem;
+    margin: 4px 0px;
+}
+
+.todo-item .text {
+    width: 70%;
+    font-family: 'Roboto', sans-serif;
+}
+.done-btn {
+    width: 2.8rem;
+    background-color: transparent;
+    border-style: none;
+    color: rgb(0, 174, 255);
+}
+
+.delete-btn {
+    width: 2.8rem;
+    background-color: transparent;
+    border-style: none;
+    color: rgb(255, 0, 0);
+}

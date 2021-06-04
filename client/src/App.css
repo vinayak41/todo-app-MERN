@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.app > h1{
+    text-align: center;
+    margin-top: 2.5rem;
+    font-family: 'Luckiest Guy', cursive;
+    letter-spacing: 5px;
+    font-size: 2.7rem;
+}

@@ -1,0 +1,36 @@
+.add-todo {
+    width: 100%;
+    position: relative;
+    height: 3rem;
+    margin-bottom: 1rem;
+}
+
+.add-todo form {
+    width: inherit;
+    position: absolute;
+    height: inherit;
+}
+
+.add-todo form input{
+    width: inherit;
+    height: inherit;
+    border: 2px solid rgb(72, 152, 255);
+    border-radius: 7px;
+    padding: 0.3rem 1.3rem;
+    font-size: 1.2rem;
+    box-shadow: 1px 1px 4px rgb(72, 152, 255);
+}
+
+.add-todo input:focus {
+    outline: none;
+}
+
+.add-btn {
+    position: absolute;
+    right: 0rem;
+    width: 3rem;
+    height: 3rem;
+    background-color: transparent;
+    border-style: none;
+    color: rgb(52, 182, 0);
+}

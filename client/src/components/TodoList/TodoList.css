@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.todo-list {
+    width: 30rem;
+    margin: 1rem auto;
+    /* border: 1px solid rgb(221, 221, 221); */
+}
+
+.no-todo {
+    text-align:  center;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 5rem;
+}
