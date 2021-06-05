@@ -11,3 +11,11 @@ exports.addTodo = (req, res) => {
         if(todo) res.json( { todo: todo});
     })
 }
+
+
+exports.deleteTodo = (req, res) => {
+    Todo.remove({id: req.body.id}).exec((error, data) => {
+        if(error) res.json({ error: error});
+        if(data) res.json({ deleted: data})
+    })
+}
