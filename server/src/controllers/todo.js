@@ -44,3 +44,10 @@ exports.toggleDone = (req, res) => {
   });
   
 };
+
+exports.fetchAllTodos = (req, res) => {
+    Todo.find({}).exec((error, todos) => {
+        if(error) res.json({error});
+        if(todos) res.json({todos});
+    })
+}
