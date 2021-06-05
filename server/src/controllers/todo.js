@@ -19,3 +19,17 @@ exports.deleteTodo = (req, res) => {
         if(data) res.json({ deleted: data})
     })
 }
+
+exports.toggleDone = (req, res) => {
+    todoItem = Todo.find({id: req.body.id});
+    if(todoItem.isDone) {
+        Todo.update({id: req.body.id}, {$set: {isDone: false}}).exec((error, data) => {
+            if(error) res.json({error: error});
+            if(data) res.json({data: data});
+        })
+    }
+    Todo.update({id: req.body.id}, {$set: {isDone: true}}).exec((error, data) => {
+        if(error) res.json({error: error});
+        if(data) res.json({data: data});
+    })
+}
