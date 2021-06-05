@@ -1,35 +1,46 @@
-const Todo = require('../models/todo')
+const Todo = require("../models/todo");
 
 exports.addTodo = (req, res) => {
-    const newTodo = new Todo({
-        id: req.body.id,
-        text: req.body.text
-    });
+  const newTodo = new Todo({
+    id: req.body.id,
+    text: req.body.text,
+  });
 
-    newTodo.save((error, todo) => {
-        if(error)  res.json({ error });
-        if(todo) res.json( { todo: todo});
-    })
-}
-
+  newTodo.save((error, todo) => {
+    if (error) res.json({ error });
+    if (todo) res.json({ todo: todo });
+  });
+};
 
 exports.deleteTodo = (req, res) => {
-    Todo.remove({id: req.body.id}).exec((error, data) => {
-        if(error) res.json({ error: error});
-        if(data) res.json({ deleted: data})
-    })
-}
+  Todo.remove({ id: req.body.id }).exec((error, data) => {
+    if (error) res.json({ error: error });
+    if (data) res.json({ deleted: data });
+  });
+};
 
 exports.toggleDone = (req, res) => {
-    todoItem = Todo.find({id: req.body.id});
-    if(todoItem.isDone) {
-        Todo.update({id: req.body.id}, {$set: {isDone: false}}).exec((error, data) => {
-            if(error) res.json({error: error});
-            if(data) res.json({data: data});
-        })
-    }
-    Todo.update({id: req.body.id}, {$set: {isDone: true}}).exec((error, data) => {
-        if(error) res.json({error: error});
-        if(data) res.json({data: data});
-    })
-}
+    Todo.findOne({ id: req.body.id }).exec((error, todo) => {
+      if(error) res.json({error: error});
+      if(todo) {
+        if (todo.isDone == true) {
+            Todo.updateOne({ id: req.body.id }, { $set: { isDone: false } })
+            .exec(
+              (error, data) => {
+                if (error) res.json({ error: error });
+                if (data) res.json(data);
+              }
+            );
+          } else {
+            Todo.updateOne({ id: req.body.id }, { $set: { isDone: true } })
+            .exec(
+              (error, data) => {
+                if (error) res.json({ error: error });
+                if (data) res.json(data);
+              }
+            );
+          }
+      }
+  });
+  
+};
