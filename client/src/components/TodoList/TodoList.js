@@ -4,7 +4,7 @@ import TodoItem from "../TodoItem/TodoItem";
 import AddTodo from "../AddTodo/AddTodo";
 import { useSelector, useDispatch } from 'react-redux'
 import "./TodoList.css";
-import { fetchTodo } from '../../Redux/Actions/todo'
+import { fetchTodos } from '../../Redux/Actions/todo'
 
 
 export default function TodoList() {
@@ -12,7 +12,7 @@ export default function TodoList() {
   const dispatch = useDispatch()
 
   useEffect(()=> {
-    dispatch(fetchTodo())
+    dispatch(fetchTodos())
   },[])
 
   return (

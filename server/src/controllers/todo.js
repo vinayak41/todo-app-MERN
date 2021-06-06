@@ -13,9 +13,9 @@ exports.addTodo = (req, res) => {
 };
 
 exports.deleteTodo = (req, res) => {
-  Todo.remove({ id: req.body.id }).exec((error, data) => {
+  Todo.delete({ id: req.body.id }).exec((error, data) => {
     if (error) res.json({ error: error });
-    if (data) res.json({ deleted: data });
+    if (data) res.json({data});
   });
 };
 

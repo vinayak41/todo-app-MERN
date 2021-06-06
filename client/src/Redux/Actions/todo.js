@@ -1,24 +1,33 @@
-import { ADD_TODO, FETCH_TODO, DELETE_TODO, DONE_TODO, UNDONE_TODO } from '../TypeConstants/typeConstants';
+import { ADD_TODO, FETCH_TODOS_SUCCESS, DELETE_TODO, DONE_TODO, UNDONE_TODO } from '../TypeConstants/typeConstants';
+import axios from 'axios';
+const api = 'http://localhost:8000/todo'
 
 export const addTodo = (text) => {
+    const id = Date.now();
+    axios.post(api, { text: text, id: id});
     return {
         type: ADD_TODO,
         playload: {
             text,
-            id: Date.now(),
+            id: id,
             isDone: false
         }
     }
 }
 
-export const fetchTodo = () => {
-    return {
-        type: FETCH_TODO,
-        playload: [],
+export const fetchTodos = (todos) => {
+    return (dispatch) => {
+        axios.get(api).then( res => {
+            dispatch ({
+                type: FETCH_TODOS_SUCCESS,
+                playload: res.data.todos
+            })
+        })
     }
 }
 
 export const deleteTodo = (id) => {
+    axios.delete(api, {id: id})
     return {
         type: DELETE_TODO,
         playload: id
@@ -26,6 +35,7 @@ export const deleteTodo = (id) => {
 }
 
 export const doneTodo = (id) => {
+    axios.put(api, {id: id})
     return {
         type: DONE_TODO,
         playload: id
@@ -33,6 +43,8 @@ export const doneTodo = (id) => {
 }
 
 export const undoneTodo = (id) => {
+    axios.put(api, {id: id})
+    // .then(res => console.log(res)).catch(error => console.log(error))
     return {
         type: UNDONE_TODO,
         playload: id

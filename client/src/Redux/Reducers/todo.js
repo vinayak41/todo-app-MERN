@@ -1,6 +1,6 @@
 import {
   ADD_TODO,
-  FETCH_TODO,
+  FETCH_TODOS_SUCCESS,
   DELETE_TODO,
   DONE_TODO,
   UNDONE_TODO
@@ -22,10 +22,10 @@ export default (state = initialState, action) => {
           },
         ],
       };
-    case FETCH_TODO:
+    case FETCH_TODOS_SUCCESS:
       return {
         ...state,
-        todoList: [],
+        todoList: action.playload,
       };
     case DELETE_TODO:
       return {
