@@ -27,7 +27,7 @@ export const fetchTodos = (todos) => {
 }
 
 export const deleteTodo = (id) => {
-    axios.delete(api, {id: id})
+    axios.delete(`${api}/${id}`).then((res) => console.log(res))
     return {
         type: DELETE_TODO,
         playload: id
