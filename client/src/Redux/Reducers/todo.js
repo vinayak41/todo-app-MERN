@@ -7,6 +7,7 @@ import {
   LOGIN_SUCCESS,
   SHOW_LOGIN_PAGE,
   SIGNUP_SUCCESS,
+  SHOW_SIGNUP_PAGE,
 } from "../TypeConstants/typeConstants";
 const initialState = {
   todoList: [],
@@ -66,6 +67,11 @@ export default (state = initialState, action) => {
         ...state,
         showSignUpPage: false,
       };
+    case SHOW_SIGNUP_PAGE: 
+    return {
+      ...state,
+      showSignUpPage: true
+    }
     case SIGNUP_SUCCESS: 
     return {
       ...state,

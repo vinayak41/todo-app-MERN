@@ -7,6 +7,7 @@ import SignUp from "./components/SignUp/SignUp";
 function App() {
   const isLogin = useSelector((state) => state.todo.isLogin);
   const showSignUpPage = useSelector((state) => state.todo.showSignUpPage);
+  console.log(showSignUpPage);
   return (
     <div className="app">
       {isLogin ? (
