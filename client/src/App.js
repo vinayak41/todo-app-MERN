@@ -1,17 +1,16 @@
-import { Provider } from 'react-redux';
+import { useSelector } from 'react-redux';
 import './App.css';
 import TodoList from './components/TodoList/TodoList'
-import store from './store'
+import Login from './components/Login/Login'
 
 
 function App() {
+  const isLogin = useSelector(state => state.todo.isLogin)
   return (
-    <Provider store={store}>
     <div className="app">
-      <h1>Todo</h1>
-      <TodoList />
+      {isLogin ? (<h1>Todo</h1>,
+      <TodoList />) : <Login />}
     </div>
-    </Provider>
   );
 }
 

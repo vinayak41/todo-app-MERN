@@ -1,4 +1,4 @@
-import { ADD_TODO, FETCH_TODOS_SUCCESS, DELETE_TODO, DONE_TODO, UNDONE_TODO } from '../TypeConstants/typeConstants';
+import { ADD_TODO, FETCH_TODOS_SUCCESS, DELETE_TODO, DONE_TODO, UNDONE_TODO, LOGIN_SUCCESS} from '../TypeConstants/typeConstants';
 import axios from 'axios';
 const api = 'http://localhost:8000/todo'
 
@@ -48,5 +48,11 @@ export const undoneTodo = (id) => {
     return {
         type: UNDONE_TODO,
         playload: id
+    }
+}
+
+export const login = (email, password) => {
+    return {
+        type: LOGIN_SUCCESS
     }
 }

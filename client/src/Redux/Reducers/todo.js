@@ -3,7 +3,8 @@ import {
   FETCH_TODOS_SUCCESS,
   DELETE_TODO,
   DONE_TODO,
-  UNDONE_TODO
+  UNDONE_TODO,
+  LOGIN_SUCCESS
 } from "../TypeConstants/typeConstants";
 const initialState = {
   todoList: [],
@@ -52,6 +53,12 @@ export default (state = initialState, action) => {
           return item;
         }) 
       };
+      case LOGIN_SUCCESS:
+        console.log('loggin success')
+        return {
+          ...state,
+          isLogin: true
+        }
     default:
       return state;
   }
