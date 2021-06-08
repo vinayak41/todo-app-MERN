@@ -4,10 +4,13 @@ import {
   DELETE_TODO,
   DONE_TODO,
   UNDONE_TODO,
-  LOGIN_SUCCESS
+  LOGIN_SUCCESS,
+  SHOW_LOGIN_PAGE,
+  SIGNUP_SUCCESS,
 } from "../TypeConstants/typeConstants";
 const initialState = {
   todoList: [],
+  showSignUpPage: false
 };
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -37,28 +40,37 @@ export default (state = initialState, action) => {
       return {
         ...state,
         todoList: state.todoList.map((item) => {
-          if(item.id === action.playload) {
-            item.isDone = true
+          if (item.id === action.playload) {
+            item.isDone = true;
           }
           return item;
-        }) 
+        }),
       };
-      case UNDONE_TODO:
+    case UNDONE_TODO:
       return {
         ...state,
         todoList: state.todoList.map((item) => {
-          if(item.id === action.playload) {
-            item.isDone = false
+          if (item.id === action.playload) {
+            item.isDone = false;
           }
           return item;
-        }) 
+        }),
       };
-      case LOGIN_SUCCESS:
-        console.log('loggin success')
-        return {
-          ...state,
-          isLogin: true
-        }
+    case LOGIN_SUCCESS:
+      return {
+        ...state,
+        isLogin: true,
+      };
+    case SHOW_LOGIN_PAGE:
+      return {
+        ...state,
+        showSignUpPage: false,
+      };
+    case SIGNUP_SUCCESS: 
+    return {
+      ...state,
+      showSignUpPage: false,
+    }
     default:
       return state;
   }
