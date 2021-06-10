@@ -1,6 +1,6 @@
 import React from "react";
 import {useDispatch} from 'react-redux';
-import { showLoginPage, signup } from "../../Redux/Actions/todo";
+import {signup } from "../../Redux/Actions/todo";
 import "./SignUp.css";
 
 export default function SignUp() {
@@ -21,7 +21,7 @@ export default function SignUp() {
         <input type="password" name="password" placeholder="password" />
         <button className="signup-btn" type="submit">Sign Up</button>
       </form>
-        <button className="text-btn" onClick={() => dispatch(showLoginPage())}><h4>Already have acount ? <span>Login</span></h4></button>
+        <button className="text-btn"><h4>Already have acount ? <span>Login</span></h4></button>
     </div>
   );
 }

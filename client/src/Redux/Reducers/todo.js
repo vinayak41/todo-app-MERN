@@ -5,13 +5,10 @@ import {
   DONE_TODO,
   UNDONE_TODO,
   LOGIN_SUCCESS,
-  SHOW_LOGIN_PAGE,
   SIGNUP_SUCCESS,
-  SHOW_SIGNUP_PAGE,
 } from "../TypeConstants/typeConstants";
 const initialState = {
   todoList: [],
-  showSignUpPage: false
 };
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -60,22 +57,10 @@ export default (state = initialState, action) => {
     case LOGIN_SUCCESS:
       return {
         ...state,
-        isLogin: true,
       };
-    case SHOW_LOGIN_PAGE:
-      return {
-        ...state,
-        showSignUpPage: false,
-      };
-    case SHOW_SIGNUP_PAGE: 
-    return {
-      ...state,
-      showSignUpPage: true
-    }
     case SIGNUP_SUCCESS: 
     return {
       ...state,
-      showSignUpPage: false,
     }
     default:
       return state;

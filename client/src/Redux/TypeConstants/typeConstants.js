@@ -5,5 +5,3 @@ export const DONE_TODO = "DONE_TODO";
 export const UNDONE_TODO = "UNDONE_TODO";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
-export const SHOW_LOGIN_PAGE = "SHOW_LOGIN_PAGE";
-export const SHOW_SIGNUP_PAGE = "SHOW_SIGNUP_PAGE";

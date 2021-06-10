@@ -1,4 +1,4 @@
-import { ADD_TODO, FETCH_TODOS_SUCCESS, DELETE_TODO, DONE_TODO, UNDONE_TODO, LOGIN_SUCCESS, SHOW_LOGIN_PAGE, SIGNUP_SUCCESS, SHOW_SIGNUP_PAGE} from '../TypeConstants/typeConstants';
+import { ADD_TODO, FETCH_TODOS_SUCCESS, DELETE_TODO, DONE_TODO, UNDONE_TODO, LOGIN_SUCCESS, SIGNUP_SUCCESS} from '../TypeConstants/typeConstants';
 import axios from 'axios';
 const api = 'http://localhost:8000/todo'
 
@@ -69,16 +69,5 @@ export const signup = (name, email, password) => {
             email,
             password
         }
-    }
-}
-export const showLoginPage = () => {
-    return {
-        type: SHOW_LOGIN_PAGE
-    }
-}
-
-export const showSignUpPage = () => {
-    return {
-        type: SHOW_SIGNUP_PAGE
     }
 }

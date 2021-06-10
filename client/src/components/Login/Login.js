@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {useDispatch} from 'react-redux'
-import {login, showSignUpPage} from '../../Redux/Actions/todo'
+import {login} from '../../Redux/Actions/todo'
 import "./Login.css";
 
 export default function Login() {
@@ -41,7 +41,7 @@ export default function Login() {
         />
         <button type="submit">Login</button>
       </form>
-      <button className="text-btn" onClick={() => dispatch(showSignUpPage())}><h4>New User ? <span>Sign Up</span></h4></button>
+      <button className="text-btn"><h4>New User ? <span>Sign Up</span></h4></button>
     </div>
   );
 }
