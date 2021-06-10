@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const todoRoutes = require("./routes/todo");
+const userRoutes = require("./routes/user");
 
 const app = express();
 
@@ -26,8 +28,8 @@ mongoose
   .then(() => {
     console.log("Database Connected");
   });
-const todoRoutes = require("./routes/todo");
 
 app.use("/todo", todoRoutes);
+app.use("/user", userRoutes);
 
 app.listen(8000);
