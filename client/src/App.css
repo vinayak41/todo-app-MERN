@@ -7,10 +7,6 @@
     font-family: 'Roboto', sans-serif;
 }
 
-.app > h1{
-    text-align: center;
-    margin-top: 2.5rem;
-    font-family: 'Luckiest Guy', cursive;
-    letter-spacing: 5px;
-    font-size: 2.7rem;
+.app {
+    position: relative;
 }
