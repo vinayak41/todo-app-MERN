@@ -1,0 +1,29 @@
+.home {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home p {
+    font-size: 1.4rem;
+}
+
+.home button {
+    background-color: rgb(0, 141, 0);
+    outline: none;
+    border-style: none;
+    width: 7rem;
+    height: 2.5rem;
+    border-radius: .6rem;
+    font-size: 1.1rem;
+    margin-top: 3rem;
+    box-shadow: 1px 1px 10px rgb(126, 126, 126);
+}
+
+.home button > a{
+    text-decoration: none;
+    color: white;
+}
