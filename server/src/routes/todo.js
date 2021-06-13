@@ -5,9 +5,10 @@ const {
   toggleDone,
   fetchAllTodos,
 } = require("../controllers/todo");
+const {requireLogin} = require("../controllers/common-middlewares");
 const router = express.Router();
 
-router.get("/", fetchAllTodos);
+router.get("/", requireLogin, fetchAllTodos);
 router.post("/", addTodo);
 router.delete("/:id", deleteTodo);
 router.put("/", toggleDone);
