@@ -1,7 +1,12 @@
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 
-exports.addUser = (req, res) => {
+exports.addUser = async (req, res) => {
+  const user = await User.find({email: req.body.email});
+  if(user){
+    res.status(400).json({message: "Email already in use"});
+  }
+  
   const hashPassword = bcrypt.hashSync(req.body.password, 10, (err, hash) => {
     if (err) res.json({ error: err });
     if (hash) {
