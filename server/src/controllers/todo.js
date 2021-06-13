@@ -4,6 +4,7 @@ exports.addTodo = (req, res) => {
   const newTodo = new Todo({
     id: req.body.id,
     text: req.body.text,
+    author: req.userId
   });
 
   newTodo.save((error, todo) => {
