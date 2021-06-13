@@ -4,11 +4,13 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const todoRoutes = require("./routes/todo");
 const userRoutes = require("./routes/user");
+const env = require('dotenv')
 
 const app = express();
 
 app.use(cors());
 
+env.config();
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
