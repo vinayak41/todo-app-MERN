@@ -9,8 +9,8 @@ const {requireLogin} = require("../controllers/common-middlewares");
 const router = express.Router();
 
 router.get("/", requireLogin, fetchAllTodos);
-router.post("/", addTodo);
-router.delete("/:id", deleteTodo);
-router.put("/", toggleDone);
+router.post("/",requireLogin, addTodo);
+router.delete("/:id",requireLogin, deleteTodo);
+router.put("/",requireLogin, toggleDone);
 
 module.exports = router;
