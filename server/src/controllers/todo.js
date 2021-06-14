@@ -44,7 +44,7 @@ exports.toggleDone = (req, res) => {
 };
 
 exports.fetchAllTodos = (req, res) => {
-  Todo.find({}).exec((error, todos) => {
+  Todo.find({_id: req.userId }).exec((error, todos) => {
     if (error) res.json({ error });
     if (todos) res.json({ todos });
   });
