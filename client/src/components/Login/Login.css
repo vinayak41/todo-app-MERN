@@ -1,12 +1,11 @@
 .login-page {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background-color: rgb(230, 255, 253);
 }
 
 .login-form {
@@ -18,7 +17,7 @@
     justify-content: center;
     border-radius: 1rem;
     background-image: linear-gradient(45deg, rgba(195, 0, 255, 0.507), rgba(17, 0, 255, 0.493));
-    box-shadow: 1px 1px 20px rgb(59, 59, 59);
+    box-shadow: 1px 1px 20px rgb(148, 148, 148);
 }
 
 .login-form > input{
