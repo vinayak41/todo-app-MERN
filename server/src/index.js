@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 
 mongoose
   .connect(
-    `mongodb+srv://vinayak:vinayak123@cluster0.jpxqn.mongodb.net/todo-app-mern?retryWrites=true&w=majority`,
+    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.jpxqn.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
