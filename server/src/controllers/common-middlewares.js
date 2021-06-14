@@ -7,7 +7,6 @@ exports.requireLogin = (req, res, next) => {
         jwt.verify(token, process.env.JWT_SECRET, (error, decoded) => {
             if(error) res.status(400).json({error})
             req.userId = decoded._id;
-            console.log(req)
         })
     }
     next();
