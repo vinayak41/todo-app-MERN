@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import {useDispatch} from 'react-redux'
 import {login} from '../../Redux/Actions/todo'
 import "./Login.css";
-
+import { Link } from 'react-router-dom'
+ 
 export default function Login() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
@@ -41,7 +42,7 @@ export default function Login() {
         />
         <button type="submit">Login</button>
       </form>
-      <button className="text-btn"><h4>New User ? <span>Sign Up</span></h4></button>
+      <button className="text-btn"><Link to="/signup"><h4>New User ? <span>Sign Up</span></h4></Link></button>
     </div>
   );
 }
