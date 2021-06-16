@@ -6,29 +6,30 @@ exports.signup = async (req, res) => {
   User.findOne({ email: req.body.email }).exec((error, user) => {
     if (error) res.json({ error });
     if (user) {
-      res.status(400).json({ message: "Email already in use" });
+      res.status(409).json({ message: "Email already in use" });
+    } else {
+      const hashPassword = bcrypt.hashSync(req.body.password, 10, (err, hash) => {
+        if (err) res.json({ error: err });
+        if (hash) {
+          return hash;
+        }
+      });
+    
+      const newUser = new User({
+        name: req.body.name,
+        email: req.body.email,
+        password: hashPassword,
+      });
+    
+      newUser.save((error, user) => {
+        if (error) {
+          console.log(error)
+        }
+        if (user) {
+          res.status(200).json({ meaasage: "signup seccessful" });
+        }
+      });
     }
-    const hashPassword = bcrypt.hashSync(req.body.password, 10, (err, hash) => {
-      if (err) res.json({ error: err });
-      if (hash) {
-        return hash;
-      }
-    });
-  
-    const newUser = new User({
-      name: req.body.name,
-      email: req.body.email,
-      password: hashPassword,
-    });
-  
-    newUser.save((error, user) => {
-      if (error) {
-        res.json({ error });
-      }
-      if (user) {
-        res.json({ meaasage: "signup seccessful" });
-      }
-    });
   });
 };
 

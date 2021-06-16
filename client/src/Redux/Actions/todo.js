@@ -51,23 +51,3 @@ export const undoneTodo = (id) => {
     }
 }
 
-export const login = (email, password) => {
-    return {
-        type: LOGIN_SUCCESS,
-        playload: {
-            email,
-            password
-        }
-    }
-}
-
-export const signup = (name, email, password) => {
-    return {
-        type: SIGNUP_SUCCESS,
-        playload: {
-            name,
-            email,
-            password
-        }
-    }
-}
