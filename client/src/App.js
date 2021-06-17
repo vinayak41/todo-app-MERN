@@ -4,15 +4,22 @@ import TodoList from "./components/TodoList/TodoList";
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
 import Header from "./components/Header/Header";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import Home from "./components/Home/Home";
 
 function App() {
+  const redirectTo = useSelector((state) => state.user.redirectTo);
   return (
     <div className="app">
       <Header />
       <div className="app-body">
         <Router>
+          {redirectTo ? <Redirect to={redirectTo} /> : <></>}
           <Switch>
             <Route exact path="/">
               <Home />

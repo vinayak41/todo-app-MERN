@@ -1,16 +1,16 @@
 import { SIGNUP_FAIL, SIGNUP_SUCCESS } from "../TypeConstants/typeConstants";
+const initialState = {}
 
-export default (state = {}, action) => {
+export default (state = initialState, action) => {
     switch(action.type) {
         case SIGNUP_FAIL: 
-            history.push('./login');
+            return state
+        case SIGNUP_SUCCESS: 
             return {
                 ...state,
+                redirectTo: "/login"
             }
-        case SIGNUP_SUCCESS: 
-        history.push('./login');                         
-            return {
-                ...state
-            }
+        default :
+            return state
     }
 }

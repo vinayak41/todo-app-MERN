@@ -15,18 +15,14 @@ export const login = (email, password) => {
 export const signup = (name, email, password) => {
     return (dispatch) => {
         axios.post(`${api}/signup`, {name, email, password}).then(result => {
-            console.log(name, email, password)
             if(result.status === 409) {
                 dispatch({
-                    type: SIGNUP_FAIL,
-                    playload: {
-                        message: result.data.message
-                    }
+                    type: SIGNUP_FAIL
                 })
             }
             if(result.status === 200) {
                 dispatch({
-                    type: SIGNUP_SUCCESS
+                    type: SIGNUP_SUCCESS,
                 })
             }
         })
