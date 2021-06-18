@@ -1,14 +1,22 @@
-import {LOGIN_SUCCESS, SIGNUP_SUCCESS, SIGNUP_FAIL} from '../TypeConstants/typeConstants';
+import {LOGIN_SUCCESS, SIGNUP_SUCCESS, SIGNUP_FAIL, LOGIN_FAIL} from '../TypeConstants/typeConstants';
 import axios from 'axios';
 const api = 'http://localhost:8000/user'
 
 export const login = (email, password) => {
-    return {
-        type: LOGIN_SUCCESS,
-        playload: {
-            email,
-            password
-        }
+    return (dispatch) => {
+        axios.post(`${api}/login`, {email, password}).then(result => {
+            if(result.status === 200) {
+                console.log(result.data.token)
+                dispatch({
+                    type: LOGIN_SUCCESS,
+                    playload: result.data.token
+                })
+            }
+        }).catch( () => {
+            dispatch({
+                type: LOGIN_FAIL
+            })
+        })
     }
 }
 

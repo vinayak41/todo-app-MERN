@@ -4,5 +4,6 @@ export const DELETE_TODO = "DELETE_TODO";
 export const DONE_TODO = "DONE_TODO";
 export const UNDONE_TODO = "UNDONE_TODO";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_FAIL = "LOGIN_FAIL";
 export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
 export const SIGNUP_FAIL = "SIGNUP_FAIL";

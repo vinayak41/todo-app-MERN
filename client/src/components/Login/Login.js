@@ -13,15 +13,7 @@ export default function Login() {
     e.preventDefault();
     dispatch(login(email, password))
   };
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChnage = (e) => {
-    setPassword(e.target.value);
-  };
-
+  
   return (
     <div className="login-page">
       <form className="login-form" onSubmit={(e) => handleSubmit(e)}>
@@ -31,14 +23,14 @@ export default function Login() {
           type="email"
           name="email"
           placeholder="email"
-          onChange={(e) => handleEmailChange(e)}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <label for="password"> Password </label>
         <input
           type="password"
           name="password"
           placeholder="password"
-          onChange={(e) => handlePasswordChnage(e)}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">Login</button>
       </form>
