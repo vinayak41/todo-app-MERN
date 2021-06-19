@@ -5,6 +5,8 @@ import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
 import Header from "./components/Header/Header";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import PublicRoute from "./components/PublicRoute/PublicRoute";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -25,16 +27,11 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
             <Route path="/signup">
               <SignUp />
             </Route>
             <PrivateRoute path="/todos" component={<TodoList />} />
-            {/* <Route path="/todos">
-              <TodoList />
-            </Route> */}
+            <PublicRoute restricted={true} path="/login" component={<Login/>} />
           </Switch>
         </Router>
       </div>
