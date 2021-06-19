@@ -46,12 +46,11 @@ exports.login = (req, res) => {
           const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
             expiresIn: "1h",
           });
-          const jwtreturn = jwt.verify(token, process.env.JWT_SECRET);
           res.status(200).json({ token });
         } else {
-          res.status(400).json({ message: "Invalid email/password" });
+          res.status(400).json({ error: "Invalid email/password" });
         }
       });
-    } else res.status(400).json({ message: error });
+    } else res.status(400).json({ error: "Invalid email/password" });
   });
 };

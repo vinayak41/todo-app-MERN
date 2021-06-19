@@ -12,10 +12,13 @@ export const login = (email, password) => {
                     playload: result.data.token
                 })
             }
-        }).catch( () => {
-            dispatch({
-                type: LOGIN_FAIL
-            })
+        }).catch( (error) => {
+            if(error.response.status === 400) {
+                dispatch({
+                    type: LOGIN_FAIL,
+                    playload: { message: error.response.data.error}
+                })
+            }
         })
     }
 }

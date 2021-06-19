@@ -11,11 +11,10 @@ export default (state = initialState, action) => {
                 redirectTo: "/login"
             }
         case LOGIN_FAIL: 
-            console.log("login fail")
+            console.log(action.playload.message)
             return state
         case LOGIN_SUCCESS:
             console.log("login success");
-            console.log('token: ' +  action.playload)
             return {
                 ...state,
                 token: action.playload,
