@@ -4,6 +4,7 @@ import TodoList from "./components/TodoList/TodoList";
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
 import Header from "./components/Header/Header";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import {
   BrowserRouter as Router,
   Switch,
@@ -30,9 +31,10 @@ function App() {
             <Route path="/signup">
               <SignUp />
             </Route>
-            <Route path="/todos">
+            <PrivateRoute path="/todos" component={<TodoList />} />
+            {/* <Route path="/todos">
               <TodoList />
-            </Route>
+            </Route> */}
           </Switch>
         </Router>
       </div>

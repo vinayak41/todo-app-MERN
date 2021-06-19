@@ -18,7 +18,8 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 token: action.playload,
-                redirectTo: '/todos'
+                redirectTo: '/todos',
+                isLogin: true
             }
         default :
             return state
