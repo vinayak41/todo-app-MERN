@@ -1,17 +1,28 @@
-import { ADD_TODO, FETCH_TODOS_SUCCESS, DELETE_TODO, DONE_TODO, UNDONE_TODO, LOGIN_SUCCESS, SIGNUP_SUCCESS} from '../TypeConstants/typeConstants';
+import { FETCH_TODOS_SUCCESS, DELETE_TODO, DONE_TODO, UNDONE_TODO, ADD_TODO_SUCCESS} from '../TypeConstants/typeConstants';
 import axios from 'axios';
 const api = 'http://localhost:8000/todo'
 
 export const addTodo = (text) => {
-    const id = Date.now();
-    axios.post(api, { text: text, id: id});
-    return {
-        type: ADD_TODO,
-        playload: {
-            text,
-            id: id,
-            isDone: false
-        }
+    return (dispatch) => {
+        axios({
+            method: "POST",
+            url: api,
+            data: {
+                text
+            },
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("token")}`,
+            }
+        }).then((result) => {
+            dispatch({
+                type: ADD_TODO_SUCCESS,
+                playload: {
+                    id: result._id,
+                    text,
+                    isDone: false
+                }
+            })
+        })
     }
 }
 

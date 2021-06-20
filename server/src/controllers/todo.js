@@ -2,14 +2,13 @@ const Todo = require("../models/todo");
 
 exports.addTodo = (req, res) => {
   const newTodo = new Todo({
-    id: req.body.id,
     text: req.body.text,
     author: req.userId
   });
 
   newTodo.save((error, todo) => {
     if (error) res.json({ error });
-    if (todo) res.json({ todo: todo });
+    if (todo) res.json({_id: todo._id});
   });
 };
 

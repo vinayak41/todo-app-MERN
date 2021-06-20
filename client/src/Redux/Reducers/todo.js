@@ -1,18 +1,18 @@
 import {
-  ADD_TODO,
   FETCH_TODOS_SUCCESS,
   DELETE_TODO,
   DONE_TODO,
   UNDONE_TODO,
   LOGIN_SUCCESS,
   SIGNUP_SUCCESS,
+  ADD_TODO_SUCCESS,
 } from "../TypeConstants/typeConstants";
 const initialState = {
   todoList: [],
 };
 export default (state = initialState, action) => {
   switch (action.type) {
-    case ADD_TODO:
+    case ADD_TODO_SUCCESS:
       return {
         ...state,
         todoList: [
