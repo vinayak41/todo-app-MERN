@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import "./App.css";
 import TodoList from "./components/TodoList/TodoList";
 import Login from "./components/Login/Login";
@@ -14,9 +14,15 @@ import {
   Redirect,
 } from "react-router-dom";
 import Home from "./components/Home/Home";
+import { useEffect } from "react";
+import { isLogin } from "./Redux/Actions/user"
 
 function App() {
+  const dispatch = useDispatch();
   const redirectTo = useSelector((state) => state.user.redirectTo);
+  useEffect(() => {
+    dispatch(isLogin(localStorage.getItem("token")))
+  }, [])
   return (
     <div className="app">
       <Header />

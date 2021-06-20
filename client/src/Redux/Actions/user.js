@@ -1,4 +1,4 @@
-import {LOGIN_SUCCESS, SIGNUP_SUCCESS, SIGNUP_FAIL, LOGIN_FAIL} from '../TypeConstants/typeConstants';
+import {LOGIN_SUCCESS, SIGNUP_SUCCESS, SIGNUP_FAIL, LOGIN_FAIL, IS_LOGIN_TRUE, IS_LOGIN_FALSE} from '../TypeConstants/typeConstants';
 import axios from 'axios';
 const api = 'http://localhost:8000/user'
 
@@ -36,6 +36,26 @@ export const signup = (name, email, password) => {
                     type: SIGNUP_SUCCESS,
                 })
             }
+        })
+    }
+}
+
+export const isLogin = (token) => {
+    return (dispatch) => {
+        axios({
+            method: "get",
+            url: api,
+            headers : {
+                authorization: `Bearer ${token}`
+            }
+        }).then( () => {
+            dispatch({
+                type: IS_LOGIN_TRUE,
+            })
+        }).catch(()=> {
+            dispatch({
+                type: IS_LOGIN_FALSE
+            })
         })
     }
 }

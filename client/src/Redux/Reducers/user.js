@@ -1,4 +1,4 @@
-import { LOGIN_FAIL, LOGIN_SUCCESS, SIGNUP_FAIL, SIGNUP_SUCCESS } from "../TypeConstants/typeConstants";
+import { IS_LOGIN_TRUE, LOGIN_FAIL, LOGIN_SUCCESS, SIGNUP_FAIL, SIGNUP_SUCCESS } from "../TypeConstants/typeConstants";
 const initialState = {}
 
 export default (state = initialState, action) => {
@@ -14,12 +14,22 @@ export default (state = initialState, action) => {
             console.log(action.playload.message)
             return state
         case LOGIN_SUCCESS:
-            console.log("login success");
+            localStorage.setItem("token", action.playload)
             return {
                 ...state,
                 token: action.playload,
                 redirectTo: '/todos',
                 isLogin: true
+            }
+        case IS_LOGIN_TRUE: 
+            return {
+                ...state,
+                isLogin: true
+            }
+        case IS_LOGIN_TRUE: 
+            return {
+                ...state,
+                isLogin: false
             }
         default :
             return state
