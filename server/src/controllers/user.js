@@ -61,7 +61,11 @@ exports.getUser = (req, res) => {
       res.status(400).json({error});
     }
     if(user) {
-      res.status(200).json({user});
+      res.status(200).json({user : {
+        name: user.name,
+        userId: user._id,
+        email: user.email
+      }});
     }
     res.status(400).json({error: "Invalid user"});
   })
