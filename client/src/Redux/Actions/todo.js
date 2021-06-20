@@ -1,6 +1,7 @@
 import { FETCH_TODOS_SUCCESS, DELETE_TODO, DONE_TODO, UNDONE_TODO, ADD_TODO_SUCCESS} from '../TypeConstants/typeConstants';
 import axios from 'axios';
-const api = 'http://localhost:8000/todo'
+const api = 'http://localhost:8000/todo';
+const auth = `Bearer ${localStorage.getItem("token")}`;
 
 export const addTodo = (text) => {
     return (dispatch) => {
@@ -11,13 +12,13 @@ export const addTodo = (text) => {
                 text
             },
             headers: {
-                authorization: `Bearer ${localStorage.getItem("token")}`,
+                authorization: auth
             }
         }).then((result) => {
             dispatch({
                 type: ADD_TODO_SUCCESS,
                 playload: {
-                    id: result._id,
+                    id: result.data._id,
                     text,
                     isDone: false
                 }
@@ -26,13 +27,21 @@ export const addTodo = (text) => {
     }
 }
 
-export const fetchTodos = (todos) => {
+export const fetchTodos = (token) => {
     return (dispatch) => {
-        axios.get(api).then( res => {
-            dispatch ({
+        axios({
+            method:  "GET",
+            url: api,
+            headers: {
+                authorization: `Bearer ${token}`
+            }
+        }).then( (result) => {
+            dispatch({
                 type: FETCH_TODOS_SUCCESS,
-                playload: res.data.todos
+                playload: result.data.todos
             })
+        }).catch(error => {
+            console.log(error.response)
         })
     }
 }

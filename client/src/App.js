@@ -15,14 +15,17 @@ import {
 } from "react-router-dom";
 import Home from "./components/Home/Home";
 import { useEffect } from "react";
-import { isLogin } from "./Redux/Actions/user"
+import { checkLogin } from "./Redux/Actions/user"
+import { fetchTodos } from "./Redux/Actions/todo";
 
 function App() {
   const dispatch = useDispatch();
   const redirectTo = useSelector((state) => state.user.redirectTo);
+  
   useEffect(() => {
-    dispatch(isLogin(localStorage.getItem("token")))
-  }, [])
+    dispatch(checkLogin(localStorage.getItem("token")))
+  }, []);
+
   return (
     <div className="app">
       <Header />

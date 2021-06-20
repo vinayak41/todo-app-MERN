@@ -11,7 +11,6 @@ export default (state = initialState, action) => {
                 redirectTo: "/login"
             }
         case LOGIN_FAIL: 
-            console.log(action.playload.message)
             return state
         case LOGIN_SUCCESS:
             localStorage.setItem("token", action.playload)
@@ -24,13 +23,14 @@ export default (state = initialState, action) => {
         case IS_LOGIN_TRUE: 
             return {
                 ...state,
-                isLogin: true
+                isLogin: true,
+                token: localStorage.getItem("token")
             }
-        case IS_LOGIN_TRUE: 
-            return {
-                ...state,
-                isLogin: false
-            }
+        // case IS_LOGIN_FALSE: 
+        //     return {
+        //         ...state,
+        //         isLogin: false
+        //     }
         default :
             return state
     }

@@ -6,19 +6,16 @@ export const login = (email, password) => {
     return (dispatch) => {
         axios.post(`${api}/login`, {email, password}).then(result => {
             if(result.status === 200) {
-                console.log(result.data.token)
                 dispatch({
                     type: LOGIN_SUCCESS,
                     playload: result.data.token
                 })
             }
         }).catch( (error) => {
-            if(error.response.status === 400) {
                 dispatch({
                     type: LOGIN_FAIL,
                     playload: { message: error.response.data.error}
                 })
-            }
         })
     }
 }
@@ -40,22 +37,25 @@ export const signup = (name, email, password) => {
     }
 }
 
-export const isLogin = (token) => {
+export const checkLogin = (token) => {
     return (dispatch) => {
-        axios({
-            method: "get",
-            url: api,
-            headers : {
-                authorization: `Bearer ${token}`
-            }
-        }).then( () => {
-            dispatch({
-                type: IS_LOGIN_TRUE,
+        if(token) {
+            axios({
+                method: "get",
+                url: api,
+                headers : {
+                    authorization: `Bearer ${token}`
+                }
+            }).then( () => {
+                dispatch({
+                    type: IS_LOGIN_TRUE,
+                })
+            }).catch((error)=> {
+                console.log(error.response)
+                dispatch({
+                    type: IS_LOGIN_FALSE
+                })
             })
-        }).catch(()=> {
-            dispatch({
-                type: IS_LOGIN_FALSE
-            })
-        })
+        }
     }
 }

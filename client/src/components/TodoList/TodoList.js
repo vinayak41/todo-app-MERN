@@ -4,16 +4,16 @@ import TodoItem from "../TodoItem/TodoItem";
 import AddTodo from "../AddTodo/AddTodo";
 import { useSelector, useDispatch } from 'react-redux'
 import "./TodoList.css";
-import { fetchTodos } from '../../Redux/Actions/todo'
-
+import { fetchTodos } from "../../Redux/Actions/todo";
 
 export default function TodoList() {
-  const todoList = useSelector(state => state.todo.todoList);
   const dispatch = useDispatch()
+  const todoList = useSelector(state => state.todo.todoList);
+  const isLogin = useSelector(state => state.user.isLogin)
 
   useEffect(()=> {
-    dispatch(fetchTodos())
-  },[])
+    if(isLogin) dispatch(fetchTodos(localStorage.getItem("token")));
+  }, isLogin)
 
   return (
     <div className="todo-list">
