@@ -54,3 +54,15 @@ exports.login = (req, res) => {
     } else res.status(400).json({ error: "Invalid email/password" });
   });
 };
+
+exports.getUser = (req, res) => {
+  User.findOne({_id: req.userId}).exec((error, user) => {
+    if(error) {
+      res.status(400).json({error});
+    }
+    if(user) {
+      res.status(200).json({user});
+    }
+    res.status(400).json({error: "Invalid user"});
+  })
+}
