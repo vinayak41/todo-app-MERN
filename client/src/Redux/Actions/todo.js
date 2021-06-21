@@ -18,7 +18,7 @@ export const addTodo = (text) => {
             dispatch({
                 type: ADD_TODO_SUCCESS,
                 playload: {
-                    id: result.data._id,
+                    _id: result.data._id,
                     text,
                     isDone: false
                 }
