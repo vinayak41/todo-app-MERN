@@ -1,4 +1,4 @@
-import { IS_LOGIN_TRUE, LOGIN_FAIL, LOGIN_SUCCESS, SIGNUP_FAIL, SIGNUP_SUCCESS } from "../TypeConstants/typeConstants";
+import { IS_LOGIN_TRUE, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT, SIGNUP_FAIL, SIGNUP_SUCCESS } from "../TypeConstants/typeConstants";
 const initialState = {}
 
 export default (state = initialState, action) => {
@@ -26,11 +26,12 @@ export default (state = initialState, action) => {
                 isLogin: true,
                 token: localStorage.getItem("token")
             }
-        // case IS_LOGIN_FALSE: 
-        //     return {
-        //         ...state,
-        //         isLogin: false
-        //     }
+        case LOGOUT:
+            return {
+                ...state,
+                token: "",
+                isLogin: false
+            }
         default :
             return state
     }

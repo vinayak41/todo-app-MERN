@@ -1,4 +1,4 @@
-import {LOGIN_SUCCESS, SIGNUP_SUCCESS, SIGNUP_FAIL, LOGIN_FAIL, IS_LOGIN_TRUE, IS_LOGIN_FALSE} from '../TypeConstants/typeConstants';
+import {LOGIN_SUCCESS, SIGNUP_SUCCESS, SIGNUP_FAIL, LOGIN_FAIL, IS_LOGIN_TRUE, IS_LOGIN_FALSE, LOGOUT} from '../TypeConstants/typeConstants';
 import axios from 'axios';
 const api = 'http://localhost:8000/user'
 
@@ -57,5 +57,12 @@ export const checkLogin = (token) => {
                 })
             })
         }
+    }
+}
+
+export const logout = () => {
+    localStorage.setItem("token", "");
+    return {
+        type: LOGOUT
     }
 }
