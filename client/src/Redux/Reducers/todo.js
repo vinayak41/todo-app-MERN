@@ -18,7 +18,7 @@ export default (state = initialState, action) => {
         todoList: [
           ...state.todoList,
           {
-            id: action.playload.id,
+            _id: action.playload._id,
             text: action.playload.text,
             isDone: action.playload.isDone,
           },

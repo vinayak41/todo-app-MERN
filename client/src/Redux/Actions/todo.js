@@ -14,6 +14,7 @@ export const addTodo = (text) => {
                 authorization: `Bearer ${localStorage.getItem("token")}`
             }
         }).then((result) => {
+            console.log(result.data._id)
             dispatch({
                 type: ADD_TODO_SUCCESS,
                 playload: {
@@ -68,7 +69,6 @@ export const deleteTodo = (_id) => {
 
 export const doneTodo = (_id) => {
     return (dispatch) => {
-        console.log("request unsuccess")
         axios({
             method: "PUT",
             url: api,
