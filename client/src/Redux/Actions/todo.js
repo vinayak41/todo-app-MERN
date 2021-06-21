@@ -1,7 +1,6 @@
 import { FETCH_TODOS_SUCCESS, DELETE_TODO, DONE_TODO, UNDONE_TODO, ADD_TODO_SUCCESS} from '../TypeConstants/typeConstants';
 import axios from 'axios';
 const api = 'http://localhost:8000/todo';
-const auth = `Bearer ${localStorage.getItem("token")}`;
 
 export const addTodo = (text) => {
     return (dispatch) => {
@@ -12,7 +11,7 @@ export const addTodo = (text) => {
                 text
             },
             headers: {
-                authorization: auth
+                authorization: `Bearer ${localStorage.getItem("token")}`
             }
         }).then((result) => {
             dispatch({
@@ -23,6 +22,8 @@ export const addTodo = (text) => {
                     isDone: false
                 }
             })
+        }).catch(error => {
+            console.log(error.response)
         })
     }
 }
@@ -46,28 +47,66 @@ export const fetchTodos = (token) => {
     }
 }
 
-export const deleteTodo = (id) => {
-    axios.delete(`${api}/${id}`).then((res) => console.log(res))
-    return {
-        type: DELETE_TODO,
-        playload: id
+export const deleteTodo = (_id) => {
+    return (dispatch) => {
+        axios({
+            method: "DELETE",
+            url: `${api}/${_id}`,
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        }).then(() => {
+            dispatch({
+                type: DELETE_TODO,
+                playload: _id
+            })
+        }).catch((error) => {
+            console.log(error)
+        })
     }
 }
 
-export const doneTodo = (id) => {
-    axios.put(api, {id: id})
-    return {
-        type: DONE_TODO,
-        playload: id
+export const doneTodo = (_id) => {
+    return (dispatch) => {
+        console.log("request unsuccess")
+        axios({
+            method: "PUT",
+            url: api,
+            data: {
+                id: _id
+            },
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        }).then(() => {
+            console.log("request success")
+            dispatch({
+                type: DONE_TODO,
+                playload: _id
+            })
+        }).catch(error => {
+            console.log(error.response)
+        })
     }
 }
 
-export const undoneTodo = (id) => {
-    axios.put(api, {id: id})
-    // .then(res => console.log(res)).catch(error => console.log(error))
-    return {
-        type: UNDONE_TODO,
-        playload: id
+export const undoneTodo = (_id) => {
+    return (dispatch) => {
+        axios({
+            method: "PUT",
+            data: {
+                id: _id
+            },
+            url: api,
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        }).then(() => {
+            dispatch({
+                type: UNDONE_TODO,
+                playload: _id
+            })
+        })
     }
 }
 

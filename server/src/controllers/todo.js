@@ -14,25 +14,25 @@ exports.addTodo = (req, res) => {
 };
 
 exports.deleteTodo = (req, res) => {
-  Todo.findOneAndDelete({ id: req.params.id }).exec((error, todo) => {
+  Todo.findOneAndDelete({ _id: req.params.id }).exec((error, todo) => {
     if(error) res.json({error: error});
     if(todo) res.json({message: todo});
   })
 };
 
 exports.toggleDone = (req, res) => {
-  Todo.findOne({ id: req.body.id }).exec((error, todo) => {
+  Todo.findOne({ _id: req.body.id }).exec((error, todo) => {
     if (error) res.json({ error: error });
     if (todo) {
       if (todo.isDone == true) {
-        Todo.updateOne({ id: req.body.id }, { $set: { isDone: false } }).exec(
+        Todo.updateOne({ _id: req.body.id }, { $set: { isDone: false } }).exec(
           (error, data) => {
             if (error) res.json({ error: error });
             if (data) res.json(data);
           }
         );
       } else {
-        Todo.updateOne({ id: req.body.id }, { $set: { isDone: true } }).exec(
+        Todo.updateOne({ _id: req.body.id }, { $set: { isDone: true } }).exec(
           (error, data) => {
             if (error) res.json({ error: error });
             if (data) res.json(data);

@@ -32,13 +32,14 @@ export default (state = initialState, action) => {
     case DELETE_TODO:
       return {
         ...state,
-        todoList: state.todoList.filter((item) => item.id !== action.playload),
+        todoList: state.todoList.filter((item) => item._id !== action.playload),
       };
     case DONE_TODO:
+      console.log('i am here')
       return {
         ...state,
         todoList: state.todoList.map((item) => {
-          if (item.id === action.playload) {
+          if (item._id === action.playload) {
             item.isDone = true;
           }
           return item;
@@ -48,7 +49,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         todoList: state.todoList.map((item) => {
-          if (item.id === action.playload) {
+          if (item._id === action.playload) {
             item.isDone = false;
           }
           return item;

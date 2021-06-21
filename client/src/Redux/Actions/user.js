@@ -51,7 +51,7 @@ export const checkLogin = (token) => {
                     type: IS_LOGIN_TRUE,
                 })
             }).catch((error)=> {
-                console.log(error.response)
+                console.log(error)
                 dispatch({
                     type: IS_LOGIN_FALSE
                 })

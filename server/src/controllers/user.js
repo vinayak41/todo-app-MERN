@@ -35,7 +35,10 @@ exports.signup = async (req, res) => {
 
 exports.login = (req, res) => {
   User.findOne({ email: req.body.email }).exec((error, user) => {
-    if (error) res.status(400).json({ error });
+    if (error) {
+      res.status(400).json({ error });
+      return;
+    };
     if (user) {
       bcrypt.compare(req.body.password, user.password, (error, result) => {
         if (error) {
@@ -59,6 +62,7 @@ exports.getUser = (req, res) => {
   User.findOne({_id: req.userId}).exec((error, user) => {
     if(error) {
       res.status(400).json({error});
+      return;
     }
     if(user) {
       res.status(200).json({user : {

@@ -6,11 +6,11 @@ import { doneTodo, undoneTodo, deleteTodo } from '../../Redux/Actions/todo'
 
 export default function TodoItem(props) {
   const dispatch = useDispatch()
-  const { id, text, isDone } = props.item;
+  const { _id, text, isDone } = props.item;
 
   const toggleDone = () => {
-    if(isDone) dispatch(undoneTodo(id));
-    else dispatch(doneTodo(id))
+    if(isDone) dispatch(undoneTodo(_id));
+    else dispatch(doneTodo(_id))
   }
   return (
     <div className="todo-item">
@@ -22,7 +22,7 @@ export default function TodoItem(props) {
         )}
       </button>
       <span className="text">{text}</span>
-      <button className="delete-btn" onClick={ () => dispatch(deleteTodo(id))}>
+      <button className="delete-btn" onClick={ () => dispatch(deleteTodo(_id))}>
         <i class="fas fa-trash-alt fa-2x"></i>
       </button>
     </div>
