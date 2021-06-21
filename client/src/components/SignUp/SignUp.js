@@ -33,7 +33,7 @@ export default function SignUp() {
         <input type="text" name="name" placeholder="name" onChange={ (e) => {handelValueChange(e)} } />
         <label for="email">Email</label>
         <input type="email" name="email" placeholder="email" onChange={ (e) => {handelValueChange(e)} } />
-        <label for="password">Name</label>
+        <label for="password">Password</label>
         <input type="password" name="password" placeholder="password" onChange={ (e) => {handelValueChange(e)} } />
         <button className="signup-btn" type="submit">Sign Up</button>
       </form>
