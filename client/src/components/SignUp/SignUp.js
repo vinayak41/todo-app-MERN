@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import {useDispatch} from 'react-redux';
-import {signup } from "../../Redux/Actions/user";
+import {useDispatch, useSelector} from 'react-redux';
+import {signup, resetErrMsg } from "../../Redux/Actions/user";
 import "./SignUp.css";
 import { Link } from "react-router-dom";
 
 export default function SignUp() {
     const dispatch = useDispatch()
+    const errorMsg = useSelector(state => state.user.errorMsg);
     const [name, setName] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -35,9 +36,10 @@ export default function SignUp() {
         <input type="email" name="email" placeholder="email" onChange={ (e) => {handelValueChange(e)} } />
         <label for="password">Password</label>
         <input type="password" name="password" placeholder="password" onChange={ (e) => {handelValueChange(e)} } />
+        {errorMsg ? <div className="error-msg"><p>{errorMsg}</p></div> : <></>}
         <button className="signup-btn" type="submit">Sign Up</button>
       </form>
-        <button className="text-btn"><Link to="/login"><h4>Already have acount ? <span>Login</span></h4></Link></button>
+        <button className="text-btn" onClick={() => dispatch(resetErrMsg())} ><Link to="/login"><h4>Already have acount ? <span>Login</span></h4></Link></button>
     </div>
   );
 }

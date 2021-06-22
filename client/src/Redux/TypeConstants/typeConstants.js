@@ -10,3 +10,4 @@ export const SIGNUP_FAIL = "SIGNUP_FAIL";
 export const IS_LOGIN_TRUE = "IS_LOGIN_TRUE";
 export const IS_LOGIN_FALSE = "IS_LOGIN_FALSE";
 export const LOGOUT = "LOGOUT";
+export const RESET_ERR_MSG = "RESET_ERR_MSG";

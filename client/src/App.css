@@ -22,6 +22,12 @@ a {
     color: black;
 }
 
+.error-msg {
+    color: red;
+    text-align: center;
+    margin: 3px;
+}
+
 @media screen and (max-width: 600px) {
     .app-body {
         height: 90%;

@@ -51,10 +51,10 @@ exports.login = (req, res) => {
           });
           res.status(200).json({ token });
         } else {
-          res.status(400).json({ error: "Invalid email/password" });
+          res.status(400).json({ error: "Invalid email or password" });
         }
       });
-    } else res.status(400).json({ error: "Invalid email/password" });
+    } else res.status(400).json({ error: "Invalid email or password" });
   });
 };
 
