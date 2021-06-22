@@ -43,7 +43,7 @@ exports.login = (req, res) => {
       bcrypt.compare(req.body.password, user.password, (error, result) => {
         if (error) {
           console.log(error);
-          res.status(400).json({ error });
+          res.status(400).json({ error: "Invalid email or password" });
         }
         if (result) {
           const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
