@@ -15,6 +15,7 @@
 .todo-item .text {
     width: 70%;
     font-family: 'Roboto', sans-serif;
+    padding: 0.3rem;
 }
 .done-btn {
     width: 2.8rem;
@@ -28,4 +29,17 @@
     background-color: transparent;
     border-style: none;
     color: rgb(255, 0, 0);
+}
+
+@media screen and (max-width: 430px) {
+    .todo-item .text {
+        font-size: 1rem;
+    }
+    .done-btn {
+        width: 2.5rem;
+    }
+    
+    .delete-btn {
+        width: 2.5rem;
+    }
 }

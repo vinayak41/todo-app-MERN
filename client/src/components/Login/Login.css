@@ -58,3 +58,15 @@
 .login-page .text-btn span {
     color: blue;
 }
+
+@media screen and (max-width: 410px) {
+    .login-form {
+        max-width: 20rem;
+    }
+}
+
+@media screen and (max-width: 358px) {
+    .login-form {
+        width: 17rem;
+    }
+}

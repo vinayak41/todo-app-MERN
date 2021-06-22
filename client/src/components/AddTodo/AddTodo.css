@@ -17,6 +17,7 @@
     border: 2px solid rgb(72, 152, 255);
     border-radius: 7px;
     padding: 0.3rem 1.3rem;
+    padding-right: 2.5rem;
     font-size: 1.2rem;
     box-shadow: 1px 1px 4px rgb(72, 152, 255);
 }

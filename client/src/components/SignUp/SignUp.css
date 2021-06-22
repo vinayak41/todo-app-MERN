@@ -64,3 +64,15 @@
 .signup-page .text-btn span {
     color: blue;
 }
+
+@media screen and (max-width: 410px) {
+    .signup-form {
+        max-width: 20rem;
+    }
+}
+
+@media screen and (max-width: 358px) {
+    .signup-form {
+        width: 17rem;
+    }
+}
