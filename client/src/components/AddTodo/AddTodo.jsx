@@ -14,8 +14,10 @@ export default function AddTodo() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addTodo(text))
-    setText('')
+    if(text.length > 0) {
+      dispatch(addTodo(text))
+      setText('')
+    }
   }
 
   const handleClick = () => {
