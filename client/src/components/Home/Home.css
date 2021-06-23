@@ -2,9 +2,9 @@
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .home p {
@@ -21,9 +21,50 @@
     font-size: 1.1rem;
     margin-top: 3rem;
     box-shadow: 1px 1px 10px rgb(126, 126, 126);
+    margin: 3rem;
 }
 
 .home button > a{
     text-decoration: none;
     color: white;
+}
+
+.home .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+.home .img-wrapper {
+    width: 40%;
+}
+
+.home .img-wrapper img{
+    width: 100%;
+}
+
+@media screen and (max-width: 914px) {
+    .home {
+        flex-direction: column;
+        margin-top: 3rem;
+    }
+
+    .home p {
+        font-size: 1.2rem;
+    }
+
+    .home .img-wrapper {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 410px) {
+    .home button {
+        width: 5rem;
+        height: 2.2rem;
+        font-size: .8rem;
+        margin-top: 3rem;
+    }
 }
