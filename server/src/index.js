@@ -6,6 +6,8 @@ const todoRoutes = require("./routes/todo");
 const userRoutes = require("./routes/user");
 const env = require('dotenv')
 
+const PORT = process.env.PORT || 8000;
+
 const app = express();
 
 app.use(cors());
@@ -38,4 +40,4 @@ mongoose
 app.use("/todo", todoRoutes);
 app.use("/user", userRoutes);
 
-app.listen(8000);
+app.listen(PORT);
