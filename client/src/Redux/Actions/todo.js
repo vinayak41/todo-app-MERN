@@ -1,6 +1,6 @@
 import { FETCH_TODOS_SUCCESS, DELETE_TODO, DONE_TODO, UNDONE_TODO, ADD_TODO_SUCCESS} from '../TypeConstants/typeConstants';
 import axios from 'axios';
-const api = `${"https://todo-app-mern41.herokuapp.com" || 'http://localhost:8000' }/todo`;
+const api = `/todo`;
 
 export const addTodo = (text) => {
     return (dispatch) => {

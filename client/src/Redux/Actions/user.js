@@ -1,6 +1,6 @@
 import {LOGIN_SUCCESS, SIGNUP_SUCCESS, SIGNUP_FAIL, LOGIN_FAIL, IS_LOGIN_TRUE, IS_LOGIN_FALSE, LOGOUT, RESET_ERR_MSG} from '../TypeConstants/typeConstants';
 import axios from 'axios';
-const api = `${"https://todo-app-mern41.herokuapp.com" || 'http://localhost:8000'}/user`
+const api = `/user`
 
 export const login = (email, password) => {
     return (dispatch) => {
