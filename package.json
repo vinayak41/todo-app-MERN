@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "proxy": "http://localhost:8000/",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
