@@ -1,6 +1,6 @@
 import { FETCH_TODOS_SUCCESS, DELETE_TODO, DONE_TODO, UNDONE_TODO, ADD_TODO_SUCCESS} from '../TypeConstants/typeConstants';
 import axios from 'axios';
-const api = `/todo`;
+const api = process.env.NODE_ENV === "development" ? "http://localhost:8000/todo" : "/todo"; 
 
 export const addTodo = (text) => {
     return (dispatch) => {
