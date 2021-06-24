@@ -1,6 +1,7 @@
 import {LOGIN_SUCCESS, SIGNUP_SUCCESS, SIGNUP_FAIL, LOGIN_FAIL, IS_LOGIN_TRUE, IS_LOGIN_FALSE, LOGOUT, RESET_ERR_MSG} from '../TypeConstants/typeConstants';
 import axios from 'axios';
 const api = `${process.env.APP_URL || 'http://localhost:8000'}/user`
+console.log(process.env.APP_URL)
 
 export const login = (email, password) => {
     return (dispatch) => {
